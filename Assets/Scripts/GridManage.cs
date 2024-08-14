@@ -34,20 +34,26 @@ public class GridManage : MonoBehaviour
                 childObject.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
                 
-                if (childObject.transform.localScale.y < gridElement.transform.localScale.y)
+                if (childObject.transform.localScale.y > gridElement.transform.localScale.y)
                 {
                     
                     gridElement.GetComponent<Renderer>().material.color = Color.red;
+                    childObject.transform.localPosition = new Vector3(0,0,-1);
+                    
 
-                    Destroy(childObject);
+                    //Destroy(childObject);
                 }
                 else
                 {
                     childObject.transform.localPosition = new Vector3(0,0,-1);
                 }
+                
             }
         }
 
         cam.transform.position = new Vector3((float)rows/2 -0.5f, (float)columns/2 -0.5f, -10);
     }
+
+    
+     
 }
